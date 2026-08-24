@@ -18,7 +18,7 @@ When a new Channel Rack channel is created, the script automatically:
 
 The same behavior applies when a sample or instrument is dragged into the Playlist because FL Studio creates a Channel Rack channel for that content.
 
-The script also watches automatically managed Mixer inserts. When a managed source channel is deleted, the script confirms that the insert is no longer being used and restores the insert’s previous name and color.
+The script also watches automatically managed Mixer inserts. When a managed source channel is deleted, the script confirms that the insert is no longer being used, removes the effects loaded in that managed insert, and restores the insert’s previous name and color.
 
 Automatic colors exclude red so they are not confused with FL Studio’s selection and attention states.
 
@@ -26,7 +26,7 @@ Automatic colors exclude red so they are not confused with FL Studio’s selecti
 
 FL Studio hosts the script through its MIDI Controller Scripting system. The script does not need a physical MIDI keyboard or controller. A free software-only virtual MIDI port is used so FL Studio can load the script.
 
-After loading, the script monitors Channel Rack changes. For each new channel, it reads the channel’s name, color, and current Mixer routing, selects an available insert, and writes the matching routing and metadata. Before changing an insert, it remembers the insert’s previous name and color. When the managed channel disappears, the script waits for the deletion state to settle, verifies that no other channel is using that insert, and restores the saved appearance.
+After loading, the script monitors Channel Rack changes. For each new channel, it reads the channel’s name, color, and current Mixer routing, selects an available insert, and writes the matching routing and metadata. Before changing an insert, it remembers the insert’s previous name and color. When the managed channel disappears, the script waits for the deletion state to settle, verifies that no other channel is using that insert, removes the occupied effects from the owned Mixer insert using a verified track-and-slot focus sequence, and restores the saved appearance.
 
 The script does not add effects, process audio, change plugin settings, create buses, or edit automation clips.
 

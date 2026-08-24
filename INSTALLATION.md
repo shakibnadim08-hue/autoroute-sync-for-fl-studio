@@ -235,9 +235,11 @@ After the script is enabled, create a clean test project and perform these tests
 4. Confirm that the Mixer insert receives the channel’s name and matching color.
 5. Drag another sample or instrument into the Playlist.
 6. Confirm that the second channel receives the same automatic organization.
-7. Delete one of the automatically managed channels.
-8. Wait briefly for FL Studio to finish updating.
-9. Confirm that the managed Mixer insert restores the name and color it had before the script claimed it.
+7. Put a test effect in the automatically assigned Mixer insert.
+8. Delete the corresponding automatically managed channel.
+9. Wait briefly for FL Studio to finish updating.
+10. Confirm that the test effect is removed from the managed Mixer insert.
+11. Confirm that the managed Mixer insert restores the name and color it had before the script claimed it.
 
 ## Updating the script
 
